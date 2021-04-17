@@ -500,9 +500,7 @@ func injectDokkuScale(appName string, image string) error {
 		os.Remove(dokkuScaleFile)
 	}
 
-	if err := common.CopyFromImage(appName, image, "DOKKU_SCALE", dokkuScaleFile); err != nil {
-		return err
-	}
+	common.CopyFromImage(appName, image, "DOKKU_SCALE", dokkuScaleFile)
 
 	if !common.FileExists(dokkuScaleFile) {
 		return nil
