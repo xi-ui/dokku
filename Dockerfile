@@ -14,7 +14,7 @@ RUN addgroup --gid $DOKKU_GID dokku \
       && adduser --uid $DOKKU_UID --gid $DOKKU_GID --disabled-password --gecos "" "dokku"
 
 COPY ./tests/dhparam.pem /tmp/dhparam.pem
-COPY ./build/dokku.deb /tmp/dokku.deb
+COPY ./build/dokku /tmp/dokku
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # hadolint ignore=DL3005,DL3008
